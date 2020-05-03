@@ -1,0 +1,22 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  """Unique id for each user"""
+  id: Int!
+  username: String!
+  password: String!
+}
+
+type LoginResponse {
+  access_token: String!
+}
+
+type Query {
+  user(username: String!): User!
+}
+
+type Mutation {
+  login(password: String!, username: String!): LoginResponse!
+}
