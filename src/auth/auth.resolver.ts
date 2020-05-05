@@ -3,7 +3,7 @@ import { AuthService } from './auth.service';
 import { UnauthorizedException, ValidationPipe } from '@nestjs/common';
 import { LoginResponse } from './dto/login.dto';
 import { SignupArgs } from './dto/signup.args';
-import { User } from 'src/users/models/user.model';
+import { User } from 'src/users/models/user.entity';
 
 @Resolver()
 export class AuthResolver {
