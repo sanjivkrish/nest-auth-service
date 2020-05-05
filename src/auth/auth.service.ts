@@ -18,8 +18,12 @@ export class AuthService {
     return null;
   }
 
-  login({ id, username }: User) {
-    const payLoad = { id, username };
+  async signup(newUser: User) {
+    return await this.userService.createUser(newUser);
+  }
+
+  login({ id }: User) {
+    const payLoad = { id };
 
     return {
       // eslint-disable-next-line @typescript-eslint/camelcase
