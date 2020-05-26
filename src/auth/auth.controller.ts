@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { LocalAuthGuard } from './guards/local.guard';
 import { AuthService } from './auth.service';
-import { User } from 'src/users/models/user.entity';
+import { User } from '../users/models/user.entity';
 
 @Controller('auth')
 export class AuthController {
