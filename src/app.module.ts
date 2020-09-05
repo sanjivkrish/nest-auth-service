@@ -3,6 +3,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
+import { MetricsModule } from './metrics/metrics.module';
+import { collectDefaultMetrics } from 'prom-client';
 
 @Module({
   imports: [
@@ -12,7 +14,14 @@ import { UsersModule } from './users/users.module';
       autoSchemaFile: './src/schema.gql',
       context: ({ req }) => ({ req }),
     }),
+    MetricsModule,
   ],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    collectDefaultMetrics({
+      prefix: 'nestjs_auth_',
+    });
+  }
+}
